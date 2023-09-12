@@ -25,12 +25,6 @@ const MascotaFormEdit = () => {
     }
   })
 
-  const HandleMascota = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-    console.log(property, value);
-  }
-
   useEffect(() => {
     const getMascotaById = async () => {
       const data = await mascotasApi.getMascotaById(mascotaId);
@@ -45,7 +39,6 @@ const MascotaFormEdit = () => {
 
   const onSubmit = async dataObject => {
     const data = await mascotasApi.updateMascotaById(dataObject, mascotaId);
-    console.log(data); 
   }
   return (
     <>

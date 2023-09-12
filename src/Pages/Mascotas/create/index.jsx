@@ -7,7 +7,6 @@ const CreateMascota = () => {
 
     const createMascotaApi = async (mascotaData) => {
         const data = await mascotasApi.createMascota(mascotaData);
-        console.log(data);
     }
     return(
         <>

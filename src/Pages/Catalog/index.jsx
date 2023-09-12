@@ -77,7 +77,7 @@ const Catalog = () => {
                     checked={filter == "especie"}
                     onChange={(event) => filterHandler(event)}
                   />
-                  <label className="form-check-label" for="exampleRadios1">
+                  <label className="form-check-label" htmlFor="exampleRadios1">
                     Especie
                   </label>
                 </div>
@@ -91,7 +91,7 @@ const Catalog = () => {
                     checked={filter == "raza"}
                     onChange={(event) => filterHandler(event)}
                   />
-                  <label className="form-check-label" for="exampleRadios2">
+                  <label className="form-check-label" htmlFor="exampleRadios2">
                     Raza
                   </label>
                 </div>

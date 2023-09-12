@@ -15,7 +15,6 @@ const MascotaItem = ({mascotaObject, type, id}) => {
     useEffect(() => {
       const getAllMascotasForUser = async () => {
         const mascotasData = await mascotasApi.getAllMascotasAsignToUser(userId);
-        console.log(mascotasData);
         setMascotasUser(mascotasData);
       }
       getAllMascotasForUser();
@@ -24,7 +23,6 @@ const MascotaItem = ({mascotaObject, type, id}) => {
     const addMascotaToUser = async () => {
       mascotasUser[mascotasUser.length] = id;
       const data = await mascotasApi.addMascotaToUser(userId, mascotasUser);
-      console.log(data);
     }
 
     return (
