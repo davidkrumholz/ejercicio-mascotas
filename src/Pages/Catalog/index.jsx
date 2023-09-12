@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { set } from "react-hook-form";
 import mascotasApi from "../../lib/mascotasApi";
 import MascotaItem from "../../Components/mascotaItem";
+import { Link } from "react-router-dom";
 
 const Catalog = () => {
   const [filter, setFilter] = useState("especie");
@@ -30,7 +31,7 @@ const Catalog = () => {
         case "raza":
             const filterDataRaza = () => {
                 return mascotas.filter((mascota) => {
-                   return mascota[1].raza.contains(razaValue);
+                   return mascota[1].raza.includes(value);
                })
            }
            const dataRaza = filterDataRaza();
@@ -62,6 +63,7 @@ const Catalog = () => {
         <div className="row">
           <div className="col-12">
             <h1 className="text-center">Catalogo de mascotas</h1>
+            <Link className="btn btn-success" to={"mascotas/create"}>Crear mascota</Link>
             <div className="d-flex justify-content-around">
               <span>Filtrar por:</span>
               <form action="" className="d-flex">
@@ -127,27 +129,18 @@ const Catalog = () => {
             {filterData && filterData.length > 0 ? (
                 filterData.map((mascota) => {
                     return (
-                        <MascotaItem key={mascota[0]} mascotaObject={mascota[1]} />
+                        <MascotaItem key={mascota[0]} mascotaObject={mascota[1]} type={"list"} id={mascota[0]} />
                       );
                 })
             ) : mascotas ? (
                 mascotas.map((mascota) => {
                   return (
-                    <MascotaItem key={mascota[0]} mascotaObject={mascota[1]} />
+                    <MascotaItem key={mascota[0]} mascotaObject={mascota[1]} type={"list"} id={mascota[0]} />
                   );
                 })
               ) : (
                 <p className="text-danger">No se encontro ninguna mascota</p>
               )}
-          {/* {mascotas ? (
-            mascotas.map((mascota) => {
-              return (
-                <MascotaItem key={mascota[0]} mascotaObject={mascota[1]} />
-              );
-            })
-          ) : (
-            <p className="text-danger">No se encontro ninguna mascota</p>
-          )} */}
         </div>
       </div>
     </>
